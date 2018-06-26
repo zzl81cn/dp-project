@@ -33,6 +33,30 @@ export async function addRule(params) {
   });
 }
 
+export async function queryComplaint(params) {
+  return request(`/api/complaint?${stringify(params)}`);
+}
+
+export async function removeComplaint(params) {
+  return request('/api/complaint', {
+    method: 'POST',
+    body: {
+      ...params,
+      method: 'delete',
+    },
+  });
+}
+
+export async function addComplaint(params) {
+  return request('/api/complaint', {
+    method: 'POST',
+    body: {
+      ...params,
+      method: 'post',
+    },
+  });
+}
+
 export async function fakeSubmitForm(params) {
   return request('/api/forms', {
     method: 'POST',
